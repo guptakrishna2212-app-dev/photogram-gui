@@ -1,0 +1,44 @@
+<h1> List of users </h1>
+
+<form action="/users">
+  <label for="entered_username" > Username</label>
+  <input type="" id="entered_username" value = "Enter a username...">
+  <input type="submit" id ="submit_username" value="Add user" >
+</form>
+
+<br>
+<table border ="1">
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Username
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% User.all.order({:username => :asc}).each do |each_user| %>
+
+  <tr>
+
+  <td>
+    <%= each_user.id %>
+  </td>
+
+  <td>
+   <%= each_user.username %>
+  </td>
+
+  <td>
+    <a href="/users/<%= each_user.username %>">
+      Show details
+    </a>
+  </td>
+  <tr>
+
+  <% end %>
+</table>
