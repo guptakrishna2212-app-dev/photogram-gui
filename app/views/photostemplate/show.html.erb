@@ -40,20 +40,21 @@
   </dt>
 
   <dd>
-    <form>
-      <label for="form_img_id">
+
+    <form action="/update_photo/<%= @photo.id %>">
+      <label for="image">
         Image
       </label>
 
-      <input type="text" id="form_img_id" value="<%= @photo.image %>">
+      <input type="text" id="image" value="<%= @photo.image %>" name="image">
     
-      <label for="form_caption_id">
+      <label for="caption">
       Caption
       </label>
 
-      <textarea id="form_caption_id"> <%= @photo.caption %></textarea>
+      <textarea id="caption" name="caption"><%=@photo.caption%></textarea>
 
-      <input type="submit" value="Update photo">
+      <button>Update photo</button>
 
     </form>
   </dd>
