@@ -12,7 +12,7 @@
   </dd>
 
   <dt> 
-      Caption
+    Caption
   </dt>
 
   <dd>
@@ -51,7 +51,7 @@
       Caption
       </label>
 
-      <input type="text" id="form_img_id" value="<%= @photo.caption %>">
+      <textarea id="form_caption_id"> <%= @photo.caption %></textarea>
 
       <input type="submit" value="Update photo">
 
@@ -63,7 +63,9 @@
   </dt>
 
   <dd>
-  <a href=""></a>
+    <a href="/delete_photo/<%= @photo.id %>">
+      Delete this photo
+    </a>
   </dd>
 
 </dl>
@@ -73,11 +75,68 @@
 </h2>
 
 <table>
-  Commenter
-  Comment
-  Posted
+  <tr>
+    <td>
+     Commenter
+    </td>
+
+    <td>
+      Comment
+    </td>
+
+    <td>
+      Posted
+    </td>
+  </tr>
+
+  <% @photo.comments.each do |each_comment| %>
+
+  <% @commenter = User.all.where({:id => each_comment.author_id}).at(0).username %>
+
+    <tr>
+      <td>
+        <%= @commenter %>
+      </td>
+
+      <td>
+        <%= each_comment.body %>
+      </td>
+
+      <td>
+        <%= each_comment.created_at%>
+      </td>
+
+    </tr>
+
+  <% end %>
+
 </table>
 
 <h3>
   Add a new comment
 </h3>
+
+<form action="/new_comment" >
+  <label for="form_img_id">
+    Photo ID
+  </label>
+
+  <input type="text" id="form_img_id" value="<%= @photo.id %>" name="formphotoid">
+
+  <label for="form_caption_id">
+  Author ID
+  </label>
+
+  <input type="text" id="form_img_id" name="formauthorid">
+
+  <label for="form_comment">
+  Comment
+  </label>
+
+  <textarea id="form_comment" placeholder="Enter a comment..." name="formcomment"></textarea>
+
+  <button type="submit">
+  Add comment
+  </button>
+
+</form>

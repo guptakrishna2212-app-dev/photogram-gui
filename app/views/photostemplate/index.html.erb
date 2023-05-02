@@ -2,27 +2,30 @@
   List of photos
 </h1>
 
-<form>
+<form action="/insert_photo">
 
   <label for="form_img_id">
     Image
   </label>
 
-  <input type="text" id="form_img_id" value="Enter a URL for the image...">
+  <input type="text" id="form_img_id" placeholder="Enter a URL for the image..." name= "image_url">
   
   <label for="form_caption_id">
   Caption
   </label>
 
-  <input type="text" id="form_caption_id" value="Enter a caption for the photo...">
+  <textarea type="text" id="form_caption_id" placeholder="Enter a caption for the photo..." name= "caption_text">
+  </textarea>
 
   <label for="form_owner_id">
     Owner ID
   </label>
 
-  <input type="text" id="form_owner_id" value="Enter an ID of a user...">
+  <input type="text" id="form_owner_id" placeholder="Enter an ID of a user..." name="ownerid_text" >
 
-  <input type="submit" value="Add photo">
+  <button> 
+    Add photo 
+  </button>
 
 </form>
 

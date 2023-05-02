@@ -16,10 +16,11 @@
   </dt>
 
   <dd>
-    <form>
+    <form action="/update_user/">
     <label for= "aaa"> Username </label>
-    <input type = "text" id = "aaa" value = "<%= @user.username %>">
-    <input type = "submit" value = "Update user">
+    <input type = "text" id = "aaa" value = "<%= @user.username %>" name="form_username">
+    <input value ="<%= @user.username %>" name="old_username" type="hidden">
+    <button> Update user </button>
     </form>
 
   </dd>
